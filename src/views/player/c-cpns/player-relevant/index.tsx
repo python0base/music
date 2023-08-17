@@ -35,24 +35,22 @@ const HYRelevant: FC<IProps> = () => {
     <RelevantWrapper>
       <HYThemeHeaderPlayer title="相似歌曲" />
       <div className="songs">
-        {simiSongs.map((item) => {
-          return (
-            <div className="song-item" key={item.id}>
-              <div className="info">
-                <div className="title">
-                  <a href="#/">{item.name}</a>
-                </div>
-                <div className="artist">
-                  <a href="#/">{item.artists[0].name}</a>
-                </div>
+        {simiSongs.map((item) => (
+          <div className="song-item" key={item.id}>
+            <div className="info">
+              <div className="title">
+                <a href="#/">{item.name}</a>
               </div>
-              <div className="operate">
-                <button className="item sprite_icon3 play"></button>
-                <button className="item sprite_icon3 add"></button>
+              <div className="artist">
+                <a href="#/">{item.artists[0].name}</a>
               </div>
             </div>
-          )
-        })}
+            <div className="operate">
+              <button className="item sprite_icon3 play"></button>
+              <button className="item sprite_icon3 add"></button>
+            </div>
+          </div>
+        ))}
       </div>
     </RelevantWrapper>
   )

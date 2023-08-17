@@ -36,26 +36,24 @@ const HYPlayerSongs: FC<IProps> = () => {
     <PlayerSongsWrapper>
       <HYThemeHeaderPlayer title="包含这首歌的歌单" />
       <div className="songs">
-        {simiPlaylist.map((item) => {
-          return (
-            <div className="song-item" key={item.id}>
-              <a className="image" href="/#">
-                <img src={getImageSize(item.coverImgUrl, 50)} alt="" />
+        {simiPlaylist.map((item) => (
+          <div className="song-item" key={item.id}>
+            <a className="image" href="/#">
+              <img src={getImageSize(item.coverImgUrl, 50)} alt="" />
+            </a>
+            <div className="info text-nowrap">
+              <a href="#/" className="name">
+                {item.name}
               </a>
-              <div className="info text-nowrap">
-                <a href="#/" className="name">
-                  {item.name}
+              <div className="auchor">
+                by
+                <a href="#/" className="nickname">
+                  {item.creator.nickname}
                 </a>
-                <div className="auchor">
-                  by
-                  <a href="#/" className="nickname">
-                    {item.creator.nickname}
-                  </a>
-                </div>
               </div>
             </div>
-          )
-        })}
+          </div>
+        ))}
       </div>
     </PlayerSongsWrapper>
   )

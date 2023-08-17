@@ -22,17 +22,15 @@ const SettleSinger: FC<IProps> = () => {
         moreLink="#/discover/artist"
       />
       <div className="artists">
-        {settleSingers.map((item) => {
-          return (
-            <a href="#/discover/artist" className="item" key={item.id}>
-              <img src={getImageSize(item.picUrl, 80)} alt="" />
-              <div className="info">
-                <div className="name">{item.name}</div>
-                <div className="alia">{item.alias.join(' ')}</div>
-              </div>
-            </a>
-          )
-        })}
+        {settleSingers.map((item) => (
+          <a href="#/discover/artist" className="item" key={item.id}>
+            <img src={getImageSize(item.picUrl, 80)} alt="" />
+            <div className="info">
+              <div className="name">{item.name}</div>
+              <div className="alia">{item.alias.join(' ')}</div>
+            </div>
+          </a>
+        ))}
       </div>
       <div className="apply-for">
         <a href="#/">申请成为网易音乐人</a>

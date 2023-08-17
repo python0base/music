@@ -26,14 +26,13 @@ const HYTopAlbum: FC<IProps> = () => {
   )
   const dispatch = useAppDispatch()
 
-  useEffect(() => {
-    dispatch(getTopAlbumsAction(1))
-  }, [dispatch])
-
   const onPageChange = (page: any, pageSize: any) => {
     setCurrentPage(page)
-    dispatch(getTopAlbumsAction(page))
   }
+
+  useEffect(() => {
+    dispatch(getTopAlbumsAction(currentPage))
+  }, [dispatch, currentPage])
 
   return (
     <TopAlbumWrapper>

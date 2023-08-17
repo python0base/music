@@ -7,10 +7,8 @@ export const LoginWrapper = styled.div`
     border-radius: 16px;
   }
   .button1 {
-    background: '#c20c0c';
-    background-color: '#c20c0c';
-    bordercolor: '#c20c0c';
     width: 300px;
+    backgroundcolor: '#FF3A3A' !import;
   }
   .itemPad {
     padding-top: 10px;

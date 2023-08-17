@@ -64,37 +64,33 @@ const TopBanner: FC<IProps> = () => {
             beforeChange={handleBeforeChange}
             afterChange={handleAfterChange}
           >
-            {banners.map((item) => {
-              return (
-                <div className="banner-item" key={item.imageUrl}>
-                  <a
-                    href={href(item.targetId, item.url)}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="ahref"
-                  >
-                    <img
-                      className="image"
-                      src={item.imageUrl}
-                      alt={item.typeTitle}
-                    />
-                  </a>
-                </div>
-              )
-            })}
+            {banners.map((item) => (
+              <div className="banner-item" key={item.imageUrl}>
+                <a
+                  href={href(item.targetId, item.url)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ahref"
+                >
+                  <img
+                    className="image"
+                    src={item.imageUrl}
+                    alt={item.typeTitle}
+                  />
+                </a>
+              </div>
+            ))}
           </Carousel>
           <ul className="dots">
-            {banners.map((item, index) => {
-              return (
-                <li key={item.imageUrl}>
-                  <span
-                    className={classNames('item', {
-                      active: index === currentIndex
-                    })}
-                  ></span>
-                </li>
-              )
-            })}
+            {banners.map((item, index) => (
+              <li key={item.imageUrl}>
+                <span
+                  className={classNames('item', {
+                    active: index === currentIndex
+                  })}
+                ></span>
+              </li>
+            ))}
           </ul>
         </BannerLeft>
         <BannerRight>PC 安卓 iPhone WP iPad Mac 六大客户端</BannerRight>

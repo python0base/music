@@ -14,16 +14,14 @@ const AppFooter: FC<IProps> = () => {
       <div className="wrap-v2 content">
         <FooterLeft className="left">
           <div className="link">
-            {footerLinks.map((item) => {
-              return (
-                <Fragment key={item.title}>
-                  <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    {item.title}
-                  </a>
-                  <span className="line">|</span>
-                </Fragment>
-              )
-            })}
+            {footerLinks.map((item) => (
+              <Fragment key={item.title}>
+                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                  {item.title}
+                </a>
+                <span className="line">|</span>
+              </Fragment>
+            ))}
           </div>
           <div className="copyright">
             <span>网易公司版权所有©1997-2020</span>
@@ -63,21 +61,19 @@ const AppFooter: FC<IProps> = () => {
           </div>
         </FooterLeft>
         <FooterRight className="right">
-          {footerImages.map((item) => {
-            return (
-              <li className="item" key={item.link}>
-                <a
-                  className="link"
-                  href={item.link}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  {' '}
-                </a>
-                <span className="title"></span>
-              </li>
-            )
-          })}
+          {footerImages.map((item) => (
+            <li className="item" key={item.link}>
+              <a
+                className="link"
+                href={item.link}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {' '}
+              </a>
+              <span className="title"></span>
+            </li>
+          ))}
         </FooterRight>
       </div>
     </AppFooterWrapper>

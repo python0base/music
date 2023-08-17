@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import { shallowEqualApp, useAppDispatch, useAppSelector } from '@/store'
-
+import { useEffect } from 'react'
 import { changeCurrentCategoryAction, getSongList } from '../../store/songs'
 
 import { CategoryWrapper } from './style'
@@ -17,8 +17,11 @@ export default memo(function HYSongsCategory() {
 
   function selectCategory(name: any) {
     dispatch(changeCurrentCategoryAction(name))
-    dispatch(getSongList(0))
   }
+
+  // useEffect(() => {
+  //   dispatch(getSongList(0))
+  // }, [dispatch])
   interface item {
     name: any
     subs: any[]
@@ -33,31 +36,27 @@ export default memo(function HYSongsCategory() {
         </span>
       </div>
       <div className="category">
-        {category.map((item: item, index) => {
-          return (
-            <dl key={item.name} className={'item' + index}>
-              <dt>
-                <i className="icon sprite_icon2"></i>
-                <span>{item.name}</span>
-              </dt>
-              <dd>
-                {item.subs.map((sItem) => {
-                  return (
-                    <div className="item" key={sItem.name}>
-                      <span
-                        className="link"
-                        onClick={() => selectCategory(sItem.name)}
-                      >
-                        {sItem.name}
-                      </span>
-                      <span className="divider">|</span>
-                    </div>
-                  )
-                })}
-              </dd>
-            </dl>
-          )
-        })}
+        {category.map((item: item, index) => (
+          <dl key={item.name} className={'item' + index}>
+            <dt>
+              <i className="icon sprite_icon2"></i>
+              <span>{item.name}</span>
+            </dt>
+            <dd>
+              {item.subs.map((sItem) => (
+                <div className="item" key={sItem.name}>
+                  <span
+                    className="link"
+                    onClick={() => selectCategory(sItem.name)}
+                  >
+                    {sItem.name}
+                  </span>
+                  <span className="divider">|</span>
+                </div>
+              ))}
+            </dd>
+          </dl>
+        ))}
       </div>
     </CategoryWrapper>
   )

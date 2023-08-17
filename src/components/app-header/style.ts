@@ -22,7 +22,8 @@ export const HeaderLeft = styled.div`
 
   .logo {
     display: block;
-    width: 176px;
+    // width: 176px;
+    width: 40px;
     height: 70px;
     background-position: 0 0;
     text-indent: -9999px;
@@ -31,6 +32,7 @@ export const HeaderLeft = styled.div`
   .title-list {
     display: flex;
     line-height: 70px;
+    padding-left: 136px; //后来加的
 
     .item {
       position: relative;

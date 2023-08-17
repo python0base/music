@@ -9,13 +9,11 @@ interface IProps {
   children?: ReactNode
 }
 
-const Album: FC<IProps> = () => {
-  return (
-    <AblumWrapper className="wrap-v2">
-      <HYHotAlbum />
-      <HYTopAlbum />
-    </AblumWrapper>
-  )
-}
+const Album: FC<IProps> = () => (
+  <AblumWrapper className="wrap-v2">
+    <HYHotAlbum />
+    <HYTopAlbum />
+  </AblumWrapper>
+)
 
 export default memo(Album)

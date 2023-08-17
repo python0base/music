@@ -1,10 +1,7 @@
 import axios from 'axios'
 import type { AxiosInstance } from 'axios'
 import type { HYRequestConfig } from './type'
-// axios.defaults.withCredentials = true
-// axios.defaults.xsrfCookieName =
-//   'MUSIC_U=043ddc1de17d186c532199d2fbba9388244d9369d964b89ad56c136e3d6bd85c993166e004087dd39c32312708908326c6b9ad1483a5e7840964ecd8c988f26acf7be411c98183f7a89fe7c55eac81f3; NMTID=00OV0NsI6vx__IhikLxt8mgDwFkTVMAAAGFBnPRNw; __csrf=b1235cb7a13a98ba4a15b0037436b5c1; __remember_me=true'
-
+// axios.defaults.withCredentials = false
 // 拦截器: 蒙版Loading/token/修改配置
 
 /**

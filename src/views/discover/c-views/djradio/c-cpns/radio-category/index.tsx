@@ -52,33 +52,27 @@ const HYRadioCategory: FC<IProps> = () => {
         <Carousel dots={{ className: 'dots' }} ref={carouselRef}>
           {Array(page)
             .fill(0)
-            .map((_, index) => {
-              return (
-                <div key={index} className="category-page">
-                  {categories
-                    .slice(index * PAGE_SIZE, getSize(index + 1))
-                    .map((item) => {
-                      return (
-                        <div
-                          key={item.id}
-                          onClick={() =>
-                            dispatch(changeCurrentIdAction(item.id))
-                          }
-                          className={classnames('category-item', {
-                            active: currentId === item.id
-                          })}
-                        >
-                          <CategoryItemImage
-                            className="image"
-                            imgUrl={item.picWebUrl}
-                          ></CategoryItemImage>
-                          <span>{item.name}</span>
-                        </div>
-                      )
-                    })}
-                </div>
-              )
-            })}
+            .map((_, index) => (
+              <div key={index} className="category-page">
+                {categories
+                  .slice(index * PAGE_SIZE, getSize(index + 1))
+                  .map((item) => (
+                    <div
+                      key={item.id}
+                      onClick={() => dispatch(changeCurrentIdAction(item.id))}
+                      className={classnames('category-item', {
+                        active: currentId === item.id
+                      })}
+                    >
+                      <CategoryItemImage
+                        className="image"
+                        imgUrl={item.picWebUrl}
+                      ></CategoryItemImage>
+                      <span>{item.name}</span>
+                    </div>
+                  ))}
+              </div>
+            ))}
         </Carousel>
       </CategoryContent>
       <div

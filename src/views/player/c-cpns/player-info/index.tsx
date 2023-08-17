@@ -37,6 +37,7 @@ const HYPlayerInfo: FC<IProps> = () => {
     console.log('info')
   }, [dispatch])
   const currentSong = location.state.currentSong
+
   return (
     <InfoWrapper>
       <InfoLeft>
@@ -80,13 +81,11 @@ const HYPlayerInfo: FC<IProps> = () => {
 
         <div className="lyric">
           <div className="lyric-info">
-            {currentLyrics.slice(0, totalLyricCount).map((item) => {
-              return (
-                <p key={item.time} className="text">
-                  {item.text}
-                </p>
-              )
-            })}
+            {currentLyrics.slice(0, totalLyricCount).map((item) => (
+              <p key={item.time} className="text">
+                {item.text}
+              </p>
+            ))}
           </div>
           <button
             className="lyric-control"

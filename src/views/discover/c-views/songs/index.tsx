@@ -28,10 +28,21 @@ const Songs: FC<IProps> = () => {
   // }, [dispatch, cat])
 
   // hooks
+
+  const { currentCategory } = useAppSelector(
+    (state) => ({
+      currentCategory: state.songs.currentCategory
+    }),
+    shallowEqualApp
+  )
+
   useEffect(() => {
     dispatch(getCategory())
-    dispatch(getSongList(0))
   }, [dispatch])
+
+  useEffect(() => {
+    dispatch(getSongList(0))
+  }, [currentCategory])
 
   return (
     <SongsWrapper className="wrap-v2">

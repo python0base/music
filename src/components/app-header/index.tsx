@@ -6,7 +6,7 @@ import { SearchOutlined } from '@ant-design/icons'
 import { HeaderLeft, HeaderRight, HeaderWrapper } from './style'
 import { shallowEqualApp, useAppSelector } from '@/store'
 import headerTitles from '@/assets/data/header_titles.json'
-import { Button, Modal } from 'antd'
+import { Button, Modal, Space } from 'antd'
 import Login from '../../views/login'
 interface IProps {
   children?: ReactNode
@@ -17,7 +17,9 @@ const AppHeader: FC<IProps> = () => {
   // const [currentIndex, setCurrentIndex] = useState(0)
 
   /** 组件的展示逻辑 */
+  // 登录框的显示
   const [isModalOpen, setIsModalOpen] = useState(false)
+
   function showItem(item: any) {
     if (item.type === 'path') {
       return (
@@ -63,16 +65,14 @@ const AppHeader: FC<IProps> = () => {
       <div className="content wrap-v1">
         <HeaderLeft>
           <a className="logo sprite_01" href="/">
-            网易云音乐
+            YH音乐
           </a>
           <div className="title-list">
-            {headerTitles.map((item) => {
-              return (
-                <div className="item" key={item.title}>
-                  {showItem(item)}
-                </div>
-              )
-            })}
+            {headerTitles.map((item) => (
+              <div className="item" key={item.title}>
+                {showItem(item)}
+              </div>
+            ))}
           </div>
         </HeaderLeft>
         <HeaderRight isLogin={loginInfo.account !== undefined}>
@@ -81,6 +81,7 @@ const AppHeader: FC<IProps> = () => {
             placeholder="音乐/视频/电台/用户"
             prefix={<SearchOutlined />}
           />
+
           <span className="center">创作者中心</span>
           {
             <span className="login" onClick={showModal}>

@@ -24,14 +24,12 @@ const AreaHeaderV1: FC<IProps> = (props) => {
       <div className="left">
         <h3 className="title">{title}</h3>
         <div className="keywords">
-          {keywords.map((item) => {
-            return (
-              <div className="item" key={item}>
-                <span className="link">{item}</span>
-                <span className="divider">|</span>
-              </div>
-            )
-          })}
+          {keywords.map((item) => (
+            <div className="item" key={item}>
+              <span className="link">{item}</span>
+              <span className="divider">|</span>
+            </div>
+          ))}
         </div>
       </div>
       <div className="right">

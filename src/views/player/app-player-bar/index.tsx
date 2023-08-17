@@ -68,6 +68,10 @@ const AppPlayerBar: FC<IProps> = () => {
 
   /** 音乐播放的进度处理 */
   function handleTimeUpdate() {
+    // 通过当前时间=》
+    // 1.设置进度条
+    // 2.设置歌词索引=》歌词的显示
+
     // 1.获取当前的播放时间
     const currentTime = audioRef.current!.currentTime * 1000
 
@@ -220,7 +224,12 @@ const AppPlayerBar: FC<IProps> = () => {
             ></button>
             <button
               className="btn sprite_playbar playlist"
-              onClick={() => setShowPanel(!showPanel)}
+              onClick={() => {
+                setShowPanel(!showPanel)
+                for (let i = 0; i < 9999; i++) {
+                  clearTimeout(i)
+                }
+              }}
             >
               {playList.length}
             </button>

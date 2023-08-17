@@ -4,6 +4,9 @@ export const PlayListWrapper = styled.div`
   position: relative;
   width: 553px;
   padding: 2px;
+  overflow: scroll;
+
+  cursor: pointer;
 
   .play-item {
     padding: 0 8px 0 25px;
@@ -35,6 +38,9 @@ export const PlayListWrapper = styled.div`
 
       .singer {
         width: 80px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
 
       .duration {

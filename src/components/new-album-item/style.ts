@@ -15,7 +15,7 @@ export const AlbumItemWrapper = styled.div<inz>`
     margin-top: 15px;
 
     img {
-      width: ${(props) => props.size};
+      width: ${(props) => props.width};
       height: ${(props) => props.size};
     }
 

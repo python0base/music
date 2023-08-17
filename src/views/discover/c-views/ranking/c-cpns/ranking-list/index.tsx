@@ -46,40 +46,38 @@ const HYRankingList: FC<IProps> = () => {
             </tr>
           </thead>
           <tbody>
-            {tracks.map((item, index) => {
-              return (
-                <tr className="" key={item.id}>
-                  <td>
-                    <div className="rank-num">
-                      <span className="num">{index + 1}</span>
-                      <span className="new sprite_icon2"></span>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="song-name">
-                      <a>
-                        {index < 3 ? (
-                          <img
-                            src={getImageSize(item.al.picUrl, 50)}
-                            alt=""
-                            onClick={() => detail(item)}
-                          />
-                        ) : null}
-                      </a>
-                      <a
-                        className="play sprite_table"
-                        onClick={() => handlePlayClick(item.id)}
-                      ></a>
-                      <a className="name" onClick={() => detail(item)}>
-                        {item.name}
-                      </a>
-                    </div>
-                  </td>
-                  <td>{formatMinuteSecond(item.dt)}</td>
-                  <td>{item.ar[0].name}</td>
-                </tr>
-              )
-            })}
+            {tracks.map((item, index) => (
+              <tr className="" key={item.id}>
+                <td>
+                  <div className="rank-num">
+                    <span className="num">{index + 1}</span>
+                    <span className="new sprite_icon2"></span>
+                  </div>
+                </td>
+                <td>
+                  <div className="song-name">
+                    <a>
+                      {index < 3 ? (
+                        <img
+                          src={getImageSize(item.al.picUrl, 50)}
+                          alt=""
+                          onClick={() => detail(item)}
+                        />
+                      ) : null}
+                    </a>
+                    <a
+                      className="play sprite_table"
+                      onClick={() => handlePlayClick(item.id)}
+                    ></a>
+                    <a className="name" onClick={() => detail(item)}>
+                      {item.name}
+                    </a>
+                  </div>
+                </td>
+                <td>{formatMinuteSecond(item.dt)}</td>
+                <td>{item.ar[0].name}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

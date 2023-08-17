@@ -13,19 +13,17 @@ const HotAnchor: FC<IProps> = () => {
     <AnchorWrapper>
       <AreaHeaderV2 title="热门主播" />
       <div className="anchors">
-        {hotRadios.map((item) => {
-          return (
-            <div className="item" key={item.picUrl}>
-              <a href="" className="image">
-                <img src={item.picUrl} alt="" />
-              </a>
-              <div className="info">
-                <div className="name">{item.name}</div>
-                <div className="position">{item.position}</div>
-              </div>
+        {hotRadios.map((item) => (
+          <div className="item" key={item.picUrl}>
+            <a href="" className="image">
+              <img src={item.picUrl} alt="" />
+            </a>
+            <div className="info">
+              <div className="name">{item.name}</div>
+              <div className="position">{item.position}</div>
             </div>
-          )
-        })}
+          </div>
+        ))}
       </div>
     </AnchorWrapper>
   )

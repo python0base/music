@@ -10,6 +10,11 @@ interface IProps {
   onOk: any
 }
 
+type FieldType = {
+  username: string
+  password: string
+  remember?: string
+}
 const Login: FC<IProps> = (props) => {
   const { onOk } = props
   const { loginInfo } = useAppSelector(
@@ -20,32 +25,23 @@ const Login: FC<IProps> = (props) => {
     shallowEqualApp
   )
   const dispatch = useAppDispatch()
-  const inp = useRef<InputRef>(null)
-  const inp1 = useRef<InputRef>(null)
-  const onFinish = (values: any) => {
+  // const inp = useRef<InputRef>(null)
+  // const inp1 = useRef<InputRef>(null)
+  const onFinish = (values: FieldType) => {
     console.log('Success:', values)
+    dispatch(Logins({ phone: values.username, password: values.password }))
   }
 
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo)
   }
 
-  function Captcha() {
-    const phone = inp.current?.input?.value
-    if (phone !== '' || phone !== undefined)
-      dispatch(getCaptcha(phone)), [dispatch]
-  }
-  function login() {
-    const phone = inp.current?.input?.value.toString()
-    const password = inp1.current?.input?.value.toString()
-    if (phone !== undefined && password !== undefined) {
-      const param = {
-        phone,
-        password
-      }
-      dispatch(Logins(param))
-    }
-  }
+  // function Captcha() {
+  //   const phone = inp.current?.input?.value
+  //   if (phone !== '' || phone !== undefined)
+  //     dispatch(getCaptcha(phone)), [dispatch]
+  // }
+
   useEffect(() => {
     if (loginInfo.account !== undefined) onOk()
   }, [loginInfo.account !== undefined])
@@ -60,20 +56,23 @@ const Login: FC<IProps> = (props) => {
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
-        <Form.Item
+        <Form.Item<FieldType>
           label="手机号"
+          name="username"
           rules={[
             { required: true, message: 'Please input your phone number!' }
           ]}
         >
-          <Input className="input2" ref={inp} />
+          <Input />
         </Form.Item>
-        <Form.Item
+        <Form.Item<FieldType>
           label="密码"
+          name="password"
           rules={[{ required: true, message: 'Please input your password!' }]}
           wrapperCol={{ span: 12 }}
         >
-          <Input.Password className="input" ref={inp1} />
+          <Input.Password />
+
           {/* <Button
             type="primary"
             shape="round"
@@ -90,7 +89,6 @@ const Login: FC<IProps> = (props) => {
             type="primary"
             shape="round"
             style={{ backgroundColor: '#FF3A3A', borderColor: '#FF3A3A' }}
-            onClick={() => login()}
           >
             登录
           </Button>

@@ -19,16 +19,17 @@ export default memo(function HYTopRanking() {
 
   // hooks
   useEffect(() => {
+    console.log('---', topList)
     const id = topList[currentIndex] && topList[currentIndex].id
     if (!id) return
     dispatch(getRanking(id))
-  }, [topList, dispatch, currentIndex])
+  }, [currentIndex, topList])
 
   // handle function
   const hanldeItemClick = (index: number) => {
     dispatch(changeCurrentIndex(index))
-    const id = topList[currentIndex].id
-    dispatch(getRanking(id))
+    // const id = topList[currentIndex].id
+    // dispatch(getRanking(id))
   }
 
   return (
